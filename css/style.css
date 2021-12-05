@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+body {
+  background-color: #292c6d;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Indie Flower", cursive;
+  padding: 50px;
+  color: #faedf0;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  /* margin: 0; */
+}
+
+h2 {
+  margin: 20px auto;
+  color: #ec255a;
+  max-width: 5%;
+  padding: 5px 10px;
+  background-color: #faedf0;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.game-size {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 8px;
+  width: 5%;
+  text-align: center;
+}
+
+#board {
+  max-width: 550px;
+  display: grid;
+  margin: 0 auto;
+  /* border: 3px solid #ec255a; */
+}
+
+#board.board_3 {
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+}
+
+#board.board_4 {
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+
+#board.board_5 {
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#board.board_6 {
+  max-width: 700px;
+  grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
+  grid-template-rows: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
+}
+
+#board.board_7 {
+  max-width: 700px;
+  grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+  grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+}
+
+#board.board_8 {
+  max-width: 800px;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+}
+
+#board.board_9 {
+  max-width: 1000px;
+  grid-template-columns: 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1%;
+  grid-template-rows: 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1%;
+}
+
+.cell {
+  border: 1px solid #ec255a;
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  cursor: pointer;
+  color: #faedf0;
+}

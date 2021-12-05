@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+    <select name="" id="gameSize"
+        class="game-size"
+        onChange="onSizeChange();">
+        <option value="3">3X3</option>
+        <option value="4">4X4</option>
+        <option value="5">5X5</option>
+        <option value="6">6X6</option>
+        <option value="7">7X7</option>
+        <option value="8">8X8</option>
+        <option value="9">9X9</option>
+    </select>
+
+    <h3 class="player-turn">Player "X" play</h3>
+
+    <div id="board">
+    </div>
+
+    <h2 class="refresh">RESET</h2>
+</body>
+
+</html>
