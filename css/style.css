@@ -2,7 +2,6 @@
 
 body {
   background-color: #292c6d;
-  /* font-family: "Open Sans", sans-serif; */
   font-family: "Indie Flower", cursive;
   padding: 50px;
   color: #faedf0;
@@ -12,7 +11,6 @@ h1,
 h2,
 h3 {
   text-align: center;
-  /* margin: 0; */
 }
 
 h2 {
@@ -37,7 +35,6 @@ h2 {
   max-width: 550px;
   display: grid;
   margin: 0 auto;
-  /* border: 3px solid #ec255a; */
 }
 
 #board.board_3 {
