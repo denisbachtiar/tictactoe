@@ -23,63 +23,38 @@ h2 {
   cursor: pointer;
 }
 
-.game-size {
-  margin: 0 auto;
+.box-parent {
   display: block;
-  margin-bottom: 8px;
-  width: 5%;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.game-size {
   text-align: center;
+  width: 70px;
+  height: 25px;
+  display: block;
+  margin: 5px auto;
+  padding: 2px 11px 2px 25px;
+  font-size: 18px;
 }
 
 #board {
-  max-width: 550px;
   display: grid;
   margin: 0 auto;
-}
-
-#board.board_3 {
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 33% 33% 33%;
-}
-
-#board.board_4 {
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
-}
-
-#board.board_5 {
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
-}
-
-#board.board_6 {
-  max-width: 700px;
-  grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
-  grid-template-rows: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
-}
-
-#board.board_7 {
-  max-width: 700px;
-  grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
-  grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
-}
-
-#board.board_8 {
-  max-width: 800px;
-  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-}
-
-#board.board_9 {
-  max-width: 1000px;
-  grid-template-columns: 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1%;
-  grid-template-rows: 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1% 11.1%;
+  width: fit-content;
 }
 
 .cell {
   border: 1px solid #ec255a;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 60px;
+  min-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;

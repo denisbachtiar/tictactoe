@@ -1,14 +1,23 @@
 function onSizeChange(evt) {
   var e = document.getElementById("gameSize");
-  const board_box = document.getElementById("board");
-  board_box.innerHTML = "";
+  const board = document.getElementById("board");
+  const loading_text = document.getElementById("loading");
+  board.innerHTML = "";
+  let count = e.value;
 
-  let count = e.options[e.selectedIndex].value;
+  let grid_count = new Array(Number(count) + 1).join("60px ");
 
-  board_box.className = `board_${count}`;
+  document.getElementById("board").style.gridTemplateColumns = grid_count;
+  document.getElementById("board").style.gridTemplateRows = grid_count;
 
-  for (var x = 0; x < count * count; x++) {
-    board_box.innerHTML += `<div class="cell"></div>`;
+  if (count > 2) {
+    document.getElementById("board").style.display = "grid";
+    for (var x = 0; x < count * count; x++) {
+      board.innerHTML += `<div class="cell"></div>`;
+    }
+  } else {
+    document.getElementById("board").style.display = "block";
+    board.innerHTML += `<h1 style="color: #ec255a;"><b>Minimum board size is 3x3</b></h1>`;
   }
 
   onAfterCreated(count);
@@ -85,102 +94,31 @@ function onAfterCreated(size_count) {
   function handleResultValidation(size) {
     for (let l = 0; l < size * size - 1; l++) {
       const winCondition = winningConditions[l];
+      let vh = [];
+      let xh = [];
 
-      const map1 = board[winCondition[0]];
-      const map2 = board[winCondition[1]];
-      const map3 = board[winCondition[2]];
-      const map4 = board[winCondition[3]];
-      const map5 = board[winCondition[4]];
-      const map6 = board[winCondition[5]];
-      const map7 = board[winCondition[6]];
-      const map8 = board[winCondition[7]];
-      const map9 = board[winCondition[8]];
+      for (let cc = 0; cc < size; cc++) {
+        vh.push(
+          cc <= 0
+            ? `board[winCondition[${cc}]] === ""`
+            : `|| board[winCondition[${cc}]] === ""`
+        );
+      }
 
-      let cond =
-        size === 3
-          ? map1 === "" || map2 === "" || map3 === ""
-          : size === 4
-          ? map1 === "" || map2 === "" || map3 === "" || map4 === ""
-          : size === 5
-          ? map1 === "" ||
-            map2 === "" ||
-            map3 === "" ||
-            map4 === "" ||
-            map5 === ""
-          : size === 6
-          ? map1 === "" ||
-            map2 === "" ||
-            map3 === "" ||
-            map4 === "" ||
-            map5 === "" ||
-            map6 === ""
-          : size === 7
-          ? map1 === "" ||
-            map2 === "" ||
-            map3 === "" ||
-            map4 === "" ||
-            map5 === "" ||
-            map6 === "" ||
-            map7 === ""
-          : size === 8
-          ? map1 === "" ||
-            map2 === "" ||
-            map3 === "" ||
-            map4 === "" ||
-            map5 === "" ||
-            map6 === "" ||
-            map7 === "" ||
-            map8 === ""
-          : map1 === "" ||
-            map2 === "" ||
-            map3 === "" ||
-            map4 === "" ||
-            map5 === "" ||
-            map6 === "" ||
-            map7 === "" ||
-            map8 === "" ||
-            map9 === "";
+      for (let cc = 0; cc < size - 1; cc++) {
+        xh.push(
+          `board[winCondition[${cc}]] === board[winCondition[${cc + 1}]]`
+        );
+      }
 
-      let condSuccess3 = map1 === map2 && map2 === map3;
-      let condSuccess4 = map1 === map2 && map2 === map3 && map3 === map4;
-      let condSuccess5 =
-        map1 === map2 && map2 === map3 && map3 === map4 && map4 === map5;
-      let condSuccess6 =
-        map1 === map2 &&
-        map2 === map3 &&
-        map3 === map4 &&
-        map4 === map5 &&
-        map5 === map6;
-      let condSuccess7 =
-        map1 === map2 &&
-        map2 === map3 &&
-        map3 === map4 &&
-        map4 === map5 &&
-        map5 === map6 &&
-        map6 === map7;
-      let condSuccess8 =
-        map1 === map2 &&
-        map2 === map3 &&
-        map3 === map4 &&
-        map4 === map5 &&
-        map5 === map6 &&
-        map6 === map7 &&
-        map7 === map8;
-      let condSuccess9 =
-        map1 === map2 &&
-        map2 === map3 &&
-        map3 === map4 &&
-        map4 === map5 &&
-        map5 === map6 &&
-        map6 === map7 &&
-        map7 === map8 &&
-        map8 === map9;
+      let cond = vh.join(" ");
+      let condSuccess = xh.join(" && ");
 
-      if (cond) {
+      if (eval(cond)) {
         continue;
       }
-      if (eval(`condSuccess${size}`)) {
-        alert("Game is Over");
+      if (eval(condSuccess)) {
+        alert(`Game is Over, Player "${player === "O" ? "X" : "O"}" Win!!`);
         break;
       }
     }
